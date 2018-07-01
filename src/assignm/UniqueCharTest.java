@@ -14,7 +14,7 @@ public class UniqueCharTest {
 	@Test
 	public void testNullChar()
 	{
-		assertEquals('\0',UniqueChar.getFirstNonRepeatedChar(""));
+		assertEquals('\0',UniqueChar.getFirstNonRepeatedChar(""));               //if a empty string is given 
 	}
 	@Test
 	public void testLastChar()
@@ -24,7 +24,7 @@ public class UniqueCharTest {
 	@Test
 	public void testSpecialChar()
 	{
-		assertEquals('%',UniqueChar.getFirstNonRepeatedChar("@#@#%#@#@"));
+		assertEquals('%',UniqueChar.getFirstNonRepeatedChar("@#@#%#@#@"));        //To also check the special characters
 	}
 	@Test
 	public void testSpaceChar()
@@ -39,12 +39,12 @@ public class UniqueCharTest {
 	@Test
 	public void testNumbers()
 	{
-		assertEquals('1',UniqueChar.getFirstNonRepeatedChar("@#$@#$123%%"));
+		assertEquals('1',UniqueChar.getFirstNonRepeatedChar("@#$@#$123%%"));     //checking of both numbers and characters
 	}
 	@Test
 	public void testNumbersAlpha()
 	{
-		assertEquals('g',UniqueChar.getFirstNonRepeatedChar("aabcbc111fghf"));
+		assertEquals('g',UniqueChar.getFirstNonRepeatedChar("aabcbc111fghf"));   //checking of both number and alphabets
 	}
 }
 
