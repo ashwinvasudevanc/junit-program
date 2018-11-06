@@ -5,34 +5,29 @@ public class UniqueChar {
 	public static char getFirstNonRepeatedChar(String word)
 	{
     
-    word=word.toLowerCase();
-	int count;
-	char result='\0';
-	
-	if(word==null)
-	{
-		return result;                                                    //if a null value is given as input 
-	}
-	
-	 for (int i = 0; i < word.length(); i++) 
-	 {
-         count = 1;
-         for (int j = 0; j < word.length(); j++) 
-         {
-             if (i != j && word.charAt(i) == word.charAt(j)) {
-                 count = 0;                                              
-                 break;
-             }
-          }
-         
-         if(count==1) 
-         {
-            result= word.charAt(i);                                    
-             break;
-         }
-		}
-	 
-		return result; 
+   Character nonRepeatingCharacter = Character.MIN_VALUE;
+        if(word == null) {
+            return nonRepeatingCharacter.charValue();
+        }
+        String wordLowerCase = word.toLowerCase();
+        HashMap<Character,Integer> map = new HashMap<>();
+        // Count the occurrence of each character and record it in the HashMap
+        for(int i=0;i<wordLowerCase.length();i++) {
+            Character ch=wordLowerCase.charAt(i);
+            Integer count = map.get(ch);
+            count = count == null ? 0 : count;
+            map.put(ch, ++count);
+        }
+        // Get the first character with 1 occurrence.
+        for(int i=0;i<wordLowerCase.length();i++) {
+            Character ch=wordLowerCase.charAt(i);
+            int count = map.get(ch);
+            if(count == 1) {
+                nonRepeatingCharacter=word.charAt(i);
+                break;
+            }
+        }
+        return nonRepeatingCharacter.charValue();
 	}	
 }
 
